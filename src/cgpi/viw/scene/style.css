@@ -1,0 +1,27 @@
+.sidebar {
+    -fx-background-color: #323337;
+}
+
+.label {
+    -fx-background-color: #1d1d21;
+    -fx-font-style: italic;
+    -fx-font-weight: 100;
+}
+
+.sidebar-btn {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-text-fill: #828282;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 1em; /* 12 */
+}
+
+.sidebar-btn:hover {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-text-fill: #828282;
+    -fx-border-color: rgb(22,169,250);
+    -fx-border-width: 0px 0px 0px 5px;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 1em; /* 12 */
+}
