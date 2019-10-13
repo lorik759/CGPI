@@ -3,5 +3,5 @@ package cgpi.controller;
 /**
  * @author vitor.alves
  */
-public class KochSnowFlakeController {
+public class KochSnowFlakeController extends AbstractController {
 }

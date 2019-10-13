@@ -1,19 +1,20 @@
 package cgpi.vtec.control;
 
+import cgpi.viw.enums.Scenes;
 import javafx.scene.control.Button;
 
 /**
  * @author vitor.alves
  */
-public class DrawingButton extends Button {
+public class SceneButton extends Button {
 
-    private DrawingType drawingType;
+    private Scenes scene;
 
-    public DrawingType getDrawingType() {
-        return drawingType;
+    public Scenes getScenes() {
+        return scene;
     }
 
-    public void setDrawingType(DrawingType drawingType) {
-        this.drawingType = drawingType;
+    public void setScenes(Scenes scene) {
+        this.scene = scene;
     }
 }
