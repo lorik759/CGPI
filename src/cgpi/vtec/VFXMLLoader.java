@@ -69,8 +69,8 @@ public class VFXMLLoader {
         }
         this.controllerEntity.setComponents(components);
 
-        if (controller instanceof Initializable) {
-            ((Initializable) controller).inicialize();
+        if (controller instanceof Inicializavel) {
+            ((Inicializavel) controller).inicialize();
         }
     }
 

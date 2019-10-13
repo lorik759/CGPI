@@ -1,6 +1,6 @@
 package cgpi.controller;
 
-import cgpi.vtec.Initializable;
+import cgpi.vtec.Inicializavel;
 import cgpi.vtec.SceneManager;
 import cgpi.vtec.control.SceneButton;
 import javafx.event.Event;
@@ -10,7 +10,7 @@ import javafx.scene.layout.BorderPane;
 /**
  * @author vitor.alves
  */
-public class MainController extends AbstractController implements Initializable {
+public class MainController extends AbstractController implements Inicializavel {
 
     private final SceneManager sceneManager;
 

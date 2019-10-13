@@ -3,14 +3,14 @@ package cgpi.controller;
 import cgpi.figuras.actors.DesenhoActor;
 import cgpi.figuras.model.Desenho;
 import cgpi.figuras.model.Reta;
-import cgpi.vtec.Initializable;
+import cgpi.vtec.Inicializavel;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 
 /**
  * @author vitor.alves
  */
-public class KochSnowFlakeController extends AbstractController implements Initializable {
+public class KochSnowFlakeController extends AbstractController implements Inicializavel {
 
     private DesenhoActor desenhoActor;
 

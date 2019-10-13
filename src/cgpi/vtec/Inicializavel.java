@@ -3,7 +3,7 @@ package cgpi.vtec;
 /**
  * @author vitor.alves
  */
-public interface Initializable {
+public interface Inicializavel {
 
     public void inicialize();
 }
