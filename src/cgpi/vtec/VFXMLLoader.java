@@ -70,7 +70,7 @@ public class VFXMLLoader {
         this.controllerEntity.setComponents(components);
 
         if (controller instanceof Initializable) {
-            ((Initializable) controller).initialize();
+            ((Initializable) controller).inicialize();
         }
     }
 
@@ -105,7 +105,7 @@ public class VFXMLLoader {
                 }
             }
             if (aClass == null) {
-                throw new ControllerEntityException("No AbstractController instence controller.");
+                throw new ControllerEntityException("No AbstractController instance controller.");
             }
             return field;
         }

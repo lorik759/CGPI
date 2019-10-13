@@ -19,7 +19,7 @@ public class MainController extends AbstractController implements Initializable 
     }
 
     @Override
-    public void initialize() {
+    public void inicialize() {
     }
 
     @FXML

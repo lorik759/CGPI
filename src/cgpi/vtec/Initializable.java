@@ -5,5 +5,5 @@ package cgpi.vtec;
  */
 public interface Initializable {
 
-    public void initialize();
+    public void inicialize();
 }
