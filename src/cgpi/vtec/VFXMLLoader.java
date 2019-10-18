@@ -38,9 +38,7 @@ public class VFXMLLoader {
         return controller;
     }
 
-    public Node getRoot() {
-        return fxmlLoader.getRoot();
-    }
+    public Node getRoot() { return fxmlLoader.getRoot(); }
 
     /**
      * Carrega um arquivo xml e constroi o controller

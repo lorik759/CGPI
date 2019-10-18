@@ -27,12 +27,34 @@
                     </VBox.margin>
                 </SceneButton>
                 <SceneButton fx:id="circulosRetasButton" alignment="CENTER" contentDisplay="CENTER"
-                             mnemonicParsing="false" prefHeight="35.0" prefWidth="167.0" styleClass="sidebar-btn"
-                             text="CirculosRetas" textAlignment="CENTER"/>
+                             mnemonicParsing="false" onMouseClicked="#setScene" prefHeight="35.0" prefWidth="167.0"
+                             styleClass="sidebar-btn" text="CirculosRetas" textAlignment="CENTER"
+                             scenes="Circulos_Retas">
+                    <VBox.margin>
+                        <Insets bottom="10.0" right="10.0" top="10.0"/>
+                    </VBox.margin>
+                </SceneButton>
                 <SceneButton fx:id="retaComMouseButton" alignment="CENTER" contentDisplay="CENTER"
-                             mnemonicParsing="false" prefHeight="35.0" prefWidth="155.0" styleClass="sidebar-btn"
-                             text="Reta Com Mouse" textAlignment="CENTER"/>
-                <Pane prefHeight="224.0" prefWidth="143.0" styleClass="canvas"/>
+                             mnemonicParsing="false" onMouseClicked="#setScene" prefHeight="35.0" prefWidth="155.0"
+                             styleClass="sidebar-btn" text="Reta" textAlignment="CENTER"
+                             scenes ="Reta">
+                    <VBox.margin>
+                        <Insets bottom="10.0" right="10.0" top="10.0"/>
+                    </VBox.margin>
+                </SceneButton>
+                <SceneButton fx:id="RetanguloButton" alignment="CENTER" contentDisplay="CENTER"
+                             mnemonicParsing="false" onMouseClicked="#setScene" prefHeight="35.0" prefWidth="155.0"
+                             styleClass="sidebar-btn" text="Retangulo" textAlignment="CENTER"
+                             scenes = "Retangulo">
+                    <VBox.margin>
+                        <Insets bottom="10.0" right="10.0" top="10.0"/>
+                    </VBox.margin>
+                </SceneButton>
+                <SceneButton fx:id="CirculoButton" alignment="CENTER" contentDisplay="CENTER"
+                             mnemonicParsing="false" onMouseClicked="#setScene" prefHeight="35.0" prefWidth="130.0"
+                             styleClass="sidebar-btn" text="Círculo" textAlignment="CENTER"
+                             scenes = "Circulo"/>
+                <Pane prefHeight="200.0" prefWidth="143.0" styleClass="canvas"/>
             </children>
         </VBox>
     </left>

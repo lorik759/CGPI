@@ -6,7 +6,12 @@ package cgpi.viw.enums;
 public enum Scenes {
 
   MAIN("/cgpi/viw/scene/MainView.fxml"),
-  KOCH_SNOW_FLAKE("/cgpi/viw/scene/KochSnowFlakeView.fxml");
+  KOCH_SNOW_FLAKE("/cgpi/viw/scene/KochSnowFlakeView.fxml"),
+  Circulos_Retas("/cgpi/viw/scene/CirculosRetasView.fxml"),
+  Reta("/cgpi/viw/scene/RetaView.fxml"),
+  Retangulo("/cgpi/viw/scene/RetanguloView.fxml"),
+  Circulo("/cgpi/viw/scene/CirculoView.fxml");
+
 
   private final String location;
 
