@@ -12,11 +12,17 @@ public abstract class AbstractController {
 
     private final Map<String, Node> components;
 
+    private AbstractController parent;
+
     public AbstractController() {
         components = new HashMap<>();
     }
 
     protected Node get(String key) {
         return components.get(key);
+    }
+
+    public AbstractController getParent() {
+        return parent;
     }
 }

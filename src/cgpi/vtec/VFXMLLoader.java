@@ -22,6 +22,8 @@ public class VFXMLLoader {
 
     private AbstractController controller;
 
+    private AbstractController controllerParent;
+
     private ControllerEntity controllerEntity = new ControllerEntity();
 
     private Set<Map.Entry<String, Object>> entries;
@@ -32,6 +34,11 @@ public class VFXMLLoader {
 
     public VFXMLLoader(Scenes scene) {
         this(scene.getLocation());
+    }
+
+    public VFXMLLoader(Scenes scenes, AbstractController controllerParent) {
+        this(scenes);
+        this.controllerParent = controllerParent;
     }
 
     public AbstractController getController() {
@@ -67,6 +74,10 @@ public class VFXMLLoader {
         }
         this.controllerEntity.setComponents(components);
 
+        if (this.controllerParent != null) {
+            this.controllerEntity.setParent(controllerParent);
+        }
+
         if (controller instanceof Inicializavel) {
             ((Inicializavel) controller).inicialize();
         }
@@ -76,9 +87,13 @@ public class VFXMLLoader {
 
         private static final String CONTROLLER_FIELD = "components";
 
+        private static final String PARENT_FIELD = "parent";
+
         private AbstractController controller;
 
         private Field components;
+
+        private Field parent;
 
         public void setController(AbstractController controller) {
             this.controller = controller;
@@ -90,16 +105,17 @@ public class VFXMLLoader {
         }
 
         public void create() throws NoSuchFieldException, ControllerEntityException {
-            this.components = this.getComponentField();
+            this.components = this.getComponentField(CONTROLLER_FIELD);
+            this.parent = this.getComponentField(PARENT_FIELD);
         }
 
-        private Field getComponentField() throws NoSuchFieldException, ControllerEntityException {
+        private Field getComponentField(String fieldName) throws NoSuchFieldException, ControllerEntityException {
             Class<?> aClass = this.controller.getClass();
             Field field = null;
             while (field == null && aClass != null) {
                 aClass = aClass.getSuperclass();
-                if (aClass != null && containsFieldComponents(aClass)) {
-                    field = aClass.getDeclaredField(CONTROLLER_FIELD);
+                if (aClass != null && containsFieldComponents(aClass, fieldName)) {
+                    field = aClass.getDeclaredField(fieldName);
                 }
             }
             if (aClass == null) {
@@ -108,9 +124,9 @@ public class VFXMLLoader {
             return field;
         }
 
-        private boolean containsFieldComponents(Class<?> aClass) {
+        private boolean containsFieldComponents(Class<?> aClass, String fieldName) {
             try {
-                aClass.getDeclaredField(CONTROLLER_FIELD);
+                aClass.getDeclaredField(fieldName);
             } catch (NoSuchFieldException e) {
                 return false;
             }
@@ -121,6 +137,12 @@ public class VFXMLLoader {
             this.components.setAccessible(true);
             this.components.set(this.controller, components);
             this.components.setAccessible(false);
+        }
+
+        public void setParent(Object parent) throws IllegalAccessException {
+            this.parent.setAccessible(true);
+            this.parent.set(this.controller, parent);
+            this.parent.setAccessible(false);
         }
     }
 }

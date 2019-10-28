@@ -4,6 +4,7 @@ import cgpi.figuras.actors.DesenhoActor;
 import cgpi.figuras.model.Desenho;
 import cgpi.figuras.model.Reta;
 import cgpi.vtec.Inicializavel;
+import javafx.fxml.FXML;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 
@@ -14,11 +15,12 @@ public class KochSnowFlakeController extends AbstractController implements Inici
 
     private DesenhoActor desenhoActor;
 
+    @FXML
+    private Canvas canvas;
+
     @Override
     public void inicialize() {
-        desenhoActor = new DesenhoActor(((Canvas) this.get("canvas")).getGraphicsContext2D());
-        Desenho desenho = new Desenho();
-        desenho.addReta(new Reta(new Point2D(200, 300), new Point2D(400, 500)));
-        desenhoActor.desenhe(desenho);
+        this.desenhoActor = new DesenhoActor(canvas.getGraphicsContext2D());
+//        canvas.getProperties().addListener();
     }
 }

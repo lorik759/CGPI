@@ -4,6 +4,8 @@ import cgpi.vtec.VFXMLLoader;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 import static cgpi.viw.enums.Scenes.MAIN;
@@ -20,6 +22,7 @@ public class Main extends Application {
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        TextArea
     }
 
 
