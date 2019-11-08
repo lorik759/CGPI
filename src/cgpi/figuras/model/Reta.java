@@ -11,16 +11,16 @@ public class Reta extends Figura {
 
     private static final String POINTO_B = "B";
 
-    public Reta(Point2D pointA, Point2D pointB) {
+    public Reta(Ponto pointA, Ponto pointB) {
         this.addPoint(POINTO_A, pointA);
         this.addPoint(POINTO_B, pointB);
     }
 
-    public Point2D getPointA() {
+    public Ponto getPointA() {
         return this.getPoint(POINTO_A);
     }
 
-    public Point2D getPointB() {
+    public Ponto getPointB() {
         return this.getPoint(POINTO_B);
     }
 

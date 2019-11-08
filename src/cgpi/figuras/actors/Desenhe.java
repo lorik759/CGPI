@@ -7,6 +7,7 @@ import cgpi.figuras.model.Desenho;
  */
 public interface Desenhe {
 
-    public void desenhe(Desenho desenho);
+    void desenhe(Desenho desenho);
 
+    void clearCanvas();
 }

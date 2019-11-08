@@ -19,6 +19,11 @@ public class MainController extends AbstractController implements Inicializavel 
     }
 
     @Override
+    protected Object createModel() {
+        return null;
+    }
+
+    @Override
     public void inicialize() {
     }
 

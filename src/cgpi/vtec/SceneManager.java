@@ -1,6 +1,6 @@
 package cgpi.vtec;
 
-import cgpi.viw.enums.Scenes;
+import cgpi.view.enums.Scenes;
 import javafx.scene.Node;
 
 /**

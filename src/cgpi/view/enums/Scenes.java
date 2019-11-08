@@ -1,12 +1,13 @@
-package cgpi.viw.enums;
+package cgpi.view.enums;
 
 /**
  * @author vitor.alves
  */
 public enum Scenes {
 
-  MAIN("/cgpi/viw/scene/MainView.fxml"),
-  KOCH_SNOW_FLAKE("/cgpi/viw/scene/KochSnowFlakeView.fxml");
+  MAIN("/cgpi/view/scene/MainView.fxml"),
+  KOCH_SNOW_FLAKE("/cgpi/view/scene/KochSnowFlakeView.fxml"),
+  RETA_COM_MOUSE("/cgpi/view/scene/RetaComMouseView.fxml");
 
   private final String location;
 

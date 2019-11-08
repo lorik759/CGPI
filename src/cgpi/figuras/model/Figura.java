@@ -10,17 +10,17 @@ import java.util.Map;
  */
 public class Figura {
 
-    private final Map<String, Point2D> points;
+    private final Map<String, Ponto> points;
 
     public Figura() {
-        points = new HashMap<String, Point2D>();
+        points = new HashMap<String, Ponto>();
     }
 
-    public void addPoint(String pointName, Point2D point) {
+    public void addPoint(String pointName, Ponto point) {
         points.put(pointName, point);
     }
 
-    public Point2D getPoint(String pointName) {
+    public Ponto getPoint(String pointName) {
         return points.get(pointName);
     }
 }

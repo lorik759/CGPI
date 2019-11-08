@@ -30,8 +30,8 @@
                              mnemonicParsing="false" prefHeight="35.0" prefWidth="167.0" styleClass="sidebar-btn"
                              text="CirculosRetas" textAlignment="CENTER"/>
                 <SceneButton fx:id="retaComMouseButton" alignment="CENTER" contentDisplay="CENTER"
-                             mnemonicParsing="false" prefHeight="35.0" prefWidth="155.0" styleClass="sidebar-btn"
-                             text="Reta Com Mouse" textAlignment="CENTER"/>
+                             mnemonicParsing="false" onMouseClicked="#setScene" prefHeight="35.0" prefWidth="155.0" styleClass="sidebar-btn"
+                             text="Reta Com Mouse" textAlignment="CENTER" scenes="RETA_COM_MOUSE"/>
                 <Pane prefHeight="224.0" prefWidth="143.0" styleClass="canvas"/>
             </children>
         </VBox>

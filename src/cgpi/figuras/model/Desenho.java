@@ -12,10 +12,13 @@ public class Desenho {
 
     private final List<Circulo> circulos;
 
+    private final List<Ponto> pontos;
+
 
     public Desenho() {
         this.retas = new ArrayList<>();
         this.circulos = new ArrayList<>();
+        pontos = new ArrayList<>();
     }
 
     public List<Reta> getRetas() {
@@ -26,11 +29,19 @@ public class Desenho {
         return circulos;
     }
 
+    public List<Ponto> getPontos() {
+        return pontos;
+    }
+
     public void addReta(Reta reta) {
         this.retas.add(reta);
     }
 
     public void addCirculos(Circulo circulo) {
         this.circulos.add(circulo);
+    }
+
+    public void addPonto(Ponto ponto) {
+        this.pontos.add(ponto);
     }
 }

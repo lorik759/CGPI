@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import static cgpi.viw.enums.Scenes.MAIN;
+import static cgpi.view.enums.Scenes.MAIN;
 
 /**
  * @author vitor.alves

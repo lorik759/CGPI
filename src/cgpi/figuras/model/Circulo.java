@@ -11,7 +11,7 @@ public class Circulo extends Figura {
 
     private final double raio;
 
-    public Circulo(Point2D centro, double raio) {
+    public Circulo(Ponto centro, double raio) {
         this.addPoint(CENTRO, centro);
         this.raio = raio;
     }
