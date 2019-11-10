@@ -1,6 +1,6 @@
 package cgpi.vtec.control;
 
-import cgpi.viw.enums.Scenes;
+import cgpi.view.enums.Scenes;
 import javafx.scene.control.Button;
 
 /**
