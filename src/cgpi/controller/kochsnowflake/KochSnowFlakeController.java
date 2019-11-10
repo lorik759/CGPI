@@ -1,16 +1,11 @@
 package cgpi.controller.kochsnowflake;
 
 import cgpi.controller.AbstractController;
-import cgpi.vtec.Inicializavel;
 
 /**
  * @author vitor.alves
  */
-public class KochSnowFlakeController extends AbstractController<KochSnowFlakeModel> implements Inicializavel {
-
-    @Override
-    public void inicialize() {
-    }
+public class KochSnowFlakeController extends AbstractController<KochSnowFlakeModel> {
 
     @Override
     protected KochSnowFlakeModel createModel() {

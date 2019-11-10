@@ -1,8 +1,8 @@
 package cgpi.figuras.model;
 
-import javafx.geometry.Point2D;
-
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -22,5 +22,9 @@ public class Figura {
 
     public Ponto getPoint(String pointName) {
         return points.get(pointName);
+    }
+
+    public List<Ponto> getPontos() {
+        return new ArrayList<Ponto>(points.values());
     }
 }

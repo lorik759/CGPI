@@ -37,11 +37,24 @@ public class Desenho {
         this.retas.add(reta);
     }
 
-    public void addCirculos(Circulo circulo) {
+    public void addCirculo(Circulo circulo) {
         this.circulos.add(circulo);
     }
 
+
     public void addPonto(Ponto ponto) {
         this.pontos.add(ponto);
+    }
+
+    public void addPontos(List<Ponto> pontos) {
+        this.pontos.addAll(pontos);
+    }
+
+    public void addRetas(List<Reta> retas) {
+        this.retas.addAll(retas);
+    }
+
+    public void addCirculos(List<Circulo> circulos) {
+        this.circulos.addAll(circulos);
     }
 }

@@ -32,7 +32,7 @@
    <center>
       <Pane BorderPane.alignment="CENTER">
          <children>
-            <Canvas fx:id="canvas" height="325.0" nodeOrientation="INHERIT" styleClass="canvas" width="600.0" />
+            <Canvas fx:id="canvas" height="325.0" nodeOrientation="INHERIT" styleClass="canvas" width="500.0" />
          </children>
       </Pane>
    </center>

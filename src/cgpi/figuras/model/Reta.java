@@ -1,6 +1,6 @@
 package cgpi.figuras.model;
 
-import javafx.geometry.Point2D;
+import java.util.List;
 
 /**
  * @author vitor.alves
@@ -14,6 +14,11 @@ public class Reta extends Figura {
     public Reta(Ponto pointA, Ponto pointB) {
         this.addPoint(POINTO_A, pointA);
         this.addPoint(POINTO_B, pointB);
+    }
+
+    public Reta(List<Ponto> pontos) {
+        this.addPoint(POINTO_A, pontos.get(0));
+        this.addPoint(POINTO_B, pontos.get(1));
     }
 
     public Ponto getPointA() {

@@ -2,26 +2,24 @@
 
 <?import cgpi.vtec.control.SceneButton?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="cgpi.controller.MainController">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cgpi.controller.MainController">
     <left>
-        <VBox prefHeight="400.0" prefWidth="143.0" styleClass="sidebar" stylesheets="@style.css"
-              BorderPane.alignment="CENTER">
+        <VBox prefHeight="400.0" prefWidth="143.0" styleClass="sidebar" stylesheets="@style.css" BorderPane.alignment="CENTER">
             <children>
-                <Label alignment="CENTER" prefHeight="52.0" prefWidth="145.0" text="Figuras" textFill="#b5b2b2"
-                       VBox.vgrow="ALWAYS">
+                <Label alignment="CENTER" prefHeight="52.0" prefWidth="145.0" text="Figuras" textFill="#b5b2b2" VBox.vgrow="ALWAYS">
                     <font>
-                        <Font name="System Bold Italic" size="13.0"/>
+                        <Font name="System Bold Italic" size="13.0" />
                     </font>
                 </Label>
                 <SceneButton fx:id="kochSnowFlakeButton" alignment="CENTER" contentDisplay="CENTER"
                              mnemonicParsing="false" onMouseClicked="#setScene" prefHeight="35.0" prefWidth="155.0"
-                             styleClass="sidebar-btn" text="KochSnowFlake" textAlignment="CENTER"
-                             scenes="KOCH_SNOW_FLAKE">
+                             styleClass="sidebar-btn" text="KochSnowFlake"
+                             textAlignment="CENTER" scenes="KOCH_SNOW_FLAKE">
+
                     <VBox.margin>
                         <Insets bottom="10.0" right="10.0" top="10.0"/>
                     </VBox.margin>
@@ -30,9 +28,13 @@
                              mnemonicParsing="false" prefHeight="35.0" prefWidth="167.0" styleClass="sidebar-btn"
                              text="CirculosRetas" textAlignment="CENTER"/>
                 <SceneButton fx:id="retaComMouseButton" alignment="CENTER" contentDisplay="CENTER"
-                             mnemonicParsing="false" onMouseClicked="#setScene" prefHeight="35.0" prefWidth="155.0" styleClass="sidebar-btn"
-                             text="Reta Com Mouse" textAlignment="CENTER" scenes="RETA_COM_MOUSE"/>
-                <Pane prefHeight="224.0" prefWidth="143.0" styleClass="canvas"/>
+                        mnemonicParsing="false" onMouseClicked="#setScene" prefHeight="35.0" prefWidth="155.0"
+                        styleClass="sidebar-btn"
+                        text="Reta Com Mouse" textAlignment="CENTER" scenes="RETA_COM_MOUSE"/>
+                <Pane fx:id="canvasPane" prefHeight="224.0" prefWidth="143.0" styleClass="canvas">
+                    <children>
+                        <Canvas fx:id="canvas" height="224.0" layoutX="3.0" layoutY="3.0" width="143.0" />
+                    </children></Pane>
             </children>
         </VBox>
     </left>

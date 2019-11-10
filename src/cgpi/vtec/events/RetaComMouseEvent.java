@@ -22,7 +22,7 @@ public class RetaComMouseEvent extends AbstractDesenhoEvent<MouseEvent> {
     }
 
     @Override
-    public void handle(MouseEvent mouseEvent) {
+    protected void executeEvent(MouseEvent mouseEvent) {
         MouseButton button = mouseEvent.getButton();
         if (button.equals(MouseButton.PRIMARY)) {
             onPrimaryClick(mouseEvent);
