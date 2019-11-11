@@ -1,24 +1,23 @@
 package cgpi.vtec.events;
 
-import cgpi.controller.AbstractController;
+import cgpi.vtec.controllers.AbstractDesenhoController;
 import cgpi.figuras.actors.Desenhe;
 import cgpi.figuras.actors.DesenhoActor;
 import cgpi.figuras.model.Desenho;
-import cgpi.vtec.DesenhoUtils;
+import cgpi.vtec.exporter.BaseDesenhoImporter;
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.event.EventType;
-import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.input.MouseEvent;
+
+import static cgpi.figuras.DesenhoUtils.replicarDesenho;
 
 /**
  * @author vitor.alves
  */
 public abstract class AbstractDesenhoEvent<T extends Event> implements EventHandler<T> {
 
-    private final AbstractController controller;
+    private final AbstractDesenhoController controller;
 
     private GraphicsContext graphicsContext;
 
@@ -28,7 +27,7 @@ public abstract class AbstractDesenhoEvent<T extends Event> implements EventHand
 
     protected final Desenho desenho;
 
-    public AbstractDesenhoEvent(AbstractController controller) {
+    public AbstractDesenhoEvent(AbstractDesenhoController controller) {
         this.controller = controller;
         this.canvas = (Canvas) controller.get("canvas");
         this.graphicsContext = this.canvas.getGraphicsContext2D();
@@ -36,7 +35,7 @@ public abstract class AbstractDesenhoEvent<T extends Event> implements EventHand
         desenho = new Desenho();
     }
 
-    public AbstractController getController() {
+    public AbstractDesenhoController getController() {
         return controller;
     }
 
@@ -58,14 +57,7 @@ public abstract class AbstractDesenhoEvent<T extends Event> implements EventHand
     }
 
     protected void replicateEvent() {
-        AbstractController parent = controller.getParent();
-        if (parent != null) {
-            Canvas canvas = (Canvas) parent.get("canvas");
-            Desenho desenhoConvertido = DesenhoUtils.convertDesenho((Canvas) controller.get("canvas"), canvas, this.desenho);
-
-            DesenhoActor desenhoActorParent = new DesenhoActor(canvas.getGraphicsContext2D());
-            desenhoActorParent.desenhe(desenhoConvertido);
-        }
+        replicarDesenho(this.controller, this.desenho);
     }
 
     protected abstract void executeEvent(T event);

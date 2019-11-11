@@ -1,4 +1,4 @@
-package cgpi.vtec;
+package cgpi.vtec.controllers;
 
 /**
  * @author vitor.alves

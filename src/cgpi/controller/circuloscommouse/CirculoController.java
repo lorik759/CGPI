@@ -1,15 +1,15 @@
 package cgpi.controller.circuloscommouse;
 
-import cgpi.controller.AbstractController;
+import cgpi.vtec.controllers.AbstractDesenhoController;
 
 /**
  * @author Douglas.cavalcanti
  */
 
-public class CirculoController extends AbstractController {
+public class CirculoController extends AbstractDesenhoController<CirculoModel> {
 
     @Override
-    protected Object createModel() {
-        return null;
+    protected CirculoModel createModel() {
+        return new CirculoModel();
     }
 }

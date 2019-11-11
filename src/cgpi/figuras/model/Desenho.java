@@ -14,11 +14,17 @@ public class Desenho {
 
     private final List<Ponto> pontos;
 
+    private final List<Retangulo> retangulos;
+
+    private final List<Poligano> poliganos;
+
 
     public Desenho() {
         this.retas = new ArrayList<>();
         this.circulos = new ArrayList<>();
         pontos = new ArrayList<>();
+        retangulos = new ArrayList<>();
+        poliganos = new ArrayList<>();
     }
 
     public List<Reta> getRetas() {
@@ -33,6 +39,10 @@ public class Desenho {
         return pontos;
     }
 
+    public List<Retangulo> getRetangulos() {
+        return retangulos;
+    }
+
     public void addReta(Reta reta) {
         this.retas.add(reta);
     }
@@ -41,9 +51,16 @@ public class Desenho {
         this.circulos.add(circulo);
     }
 
-
     public void addPonto(Ponto ponto) {
         this.pontos.add(ponto);
+    }
+
+    public void addRetangulo(Retangulo retangulo) {
+        this.retangulos.add(retangulo);
+    }
+
+    public void addPoligano(Poligano poligano) {
+        this.poliganos.add(poligano);
     }
 
     public void addPontos(List<Ponto> pontos) {
@@ -56,5 +73,25 @@ public class Desenho {
 
     public void addCirculos(List<Circulo> circulos) {
         this.circulos.addAll(circulos);
+    }
+
+    public void addRetangulos(List<Retangulo> retangulos) {
+        this.retangulos.addAll(retangulos);
+    }
+
+    public void addPoliganos(List<Poligano> poliganos) {
+        this.poliganos.addAll(poliganos);
+    }
+
+    public void limpe() {
+        retas.clear();
+        circulos.clear();
+        pontos.clear();
+        retangulos.clear();
+        poliganos.clear();
+    }
+
+    public List<Poligano> getPoliganos() {
+        return this.poliganos;
     }
 }

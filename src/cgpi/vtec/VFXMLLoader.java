@@ -1,38 +1,39 @@
 package cgpi.vtec;
 
-import cgpi.controller.AbstractController;
+import cgpi.vtec.controllers.AbstractDesenhoController;
 import cgpi.view.enums.Scenes;
+import cgpi.vtec.controllers.ControllerBuilder;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Map;
-import java.util.Set;
 
 /**
- * Inicializa e configura o controller de um xml
- *
  * @author vitor.alves
  */
 public class VFXMLLoader {
 
+    private final Stage stage;
+
     private FXMLLoader fxmlLoader;
 
-    private AbstractController controller;
+    private AbstractDesenhoController controller;
 
-    private AbstractController parentController;
+    private AbstractDesenhoController parentController;
 
     private ControllerBuilder controllerBuilder;
 
-    public VFXMLLoader(String name) {
+    public VFXMLLoader(String name, Stage stage) {
         this.fxmlLoader = new FXMLLoader(getClass().getResource(name));
+        this.stage = stage;
     }
 
-    public VFXMLLoader(Scenes scene) {
-        this(scene.getLocation());
+    public VFXMLLoader(Scenes scene, Stage stage) {
+        this(scene.getLocation(), stage);
     }
 
-    public AbstractController getController() {
+    public AbstractDesenhoController getController() {
         return controller;
     }
 
@@ -52,7 +53,7 @@ public class VFXMLLoader {
             e.printStackTrace();
         }
         this.controller = this.fxmlLoader.getController();
-        this.controllerBuilder = new ControllerBuilder(this.controller, this.fxmlLoader.getNamespace().entrySet());
+        this.controllerBuilder = new ControllerBuilder(this.controller, this.fxmlLoader.getNamespace().entrySet(), stage);
 
         this.build();
 
@@ -66,7 +67,7 @@ public class VFXMLLoader {
         this.controller = this.controllerBuilder.build();
     }
 
-    public void setParentController(AbstractController parent) {
+    public void setParentController(AbstractDesenhoController parent) {
         this.parentController = parent;
     }
 }

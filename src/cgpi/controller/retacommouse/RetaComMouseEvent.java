@@ -1,8 +1,9 @@
-package cgpi.vtec.events;
+package cgpi.controller.retacommouse;
 
-import cgpi.controller.AbstractController;
+import cgpi.vtec.controllers.AbstractDesenhoController;
 import cgpi.figuras.model.Ponto;
 import cgpi.figuras.model.Reta;
+import cgpi.vtec.events.AbstractDesenhoEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
@@ -17,7 +18,7 @@ public class RetaComMouseEvent extends AbstractDesenhoEvent<MouseEvent> {
 
     private Ponto pontoB;
 
-    public RetaComMouseEvent(AbstractController controller) {
+    public RetaComMouseEvent(AbstractDesenhoController controller) {
         super(controller);
     }
 
@@ -42,21 +43,5 @@ public class RetaComMouseEvent extends AbstractDesenhoEvent<MouseEvent> {
             this.desenho.addReta(reta);
             primeiraVez = true;
         }
-    }
-
-    private void onSecondaryClick(MouseEvent mouseEvent) {
-//        if (primeiraVez == true) {
-//            x1 = (int) mouseEvent.getX();
-//            y1 = (int) mouseEvent.getY();
-//            new PontoGr(x1, y1, Color.BLUE, "", 6).desenharPonto(this.getGraphicsContext());
-//            primeiraVez = false;
-//        } else {
-//            x2 = (int) mouseEvent.getX();
-//            y2 = (int) mouseEvent.getY();
-//            double raio = new PontoGr(x1, y1).distance(x2, y2);
-//            CirculoGr.desenhar(this.getGraphicsContext(), x1, y1, raio, Color.GREEN, "", 2, AlgoritmosCirculos.STROKELINE);
-//            new PontoGr(x2, y2, Color.BLUE, "", 6).desenharPonto(this.getGraphicsContext());
-//            primeiraVez = true;
-//        }
     }
 }

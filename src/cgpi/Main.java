@@ -1,5 +1,7 @@
 package cgpi;
 
+import cgpi.controller.MainController;
+import cgpi.vtec.SceneManager;
 import cgpi.vtec.VFXMLLoader;
 import javafx.application.Application;
 import javafx.scene.Parent;
@@ -14,10 +16,10 @@ import static cgpi.view.enums.Scenes.MAIN;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        VFXMLLoader loader = new VFXMLLoader(MAIN);
+    public void start(Stage primaryStage) {
+        VFXMLLoader loader = new VFXMLLoader(MAIN, primaryStage);
         Parent root = loader.load();
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle(MAIN.getTitel());
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }

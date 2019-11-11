@@ -1,9 +1,11 @@
 package cgpi.controller;
 
-import cgpi.view.enums.Scenes;
-import cgpi.vtec.Inicializavel;
+import cgpi.vtec.controllers.AbstractDesenhoController;
+import cgpi.vtec.controllers.Inicializavel;
 import cgpi.vtec.SceneManager;
 import cgpi.vtec.control.SceneButton;
+import cgpi.vtec.exporter.Exporter;
+import cgpi.vtec.models.DesenhoModel;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
@@ -13,16 +15,24 @@ import static cgpi.view.enums.Scenes.RETA_COM_MOUSE;
 /**
  * @author vitor.alves
  */
-public class MainController extends AbstractController implements Inicializavel {
+public class MainController extends AbstractDesenhoController implements Inicializavel {
 
-    private final SceneManager sceneManager;
+    private SceneManager sceneManager;
 
     public MainController() {
-        sceneManager = new SceneManager();
+    }
+
+    public void setSceneManager(SceneManager sceneManager) {
+        this.sceneManager = sceneManager;
     }
 
     @Override
-    protected Object createModel() {
+    protected Exporter getExporter() {
+        return null;
+    }
+
+    @Override
+    protected DesenhoModel createModel() {
         return null;
     }
 
@@ -32,8 +42,9 @@ public class MainController extends AbstractController implements Inicializavel 
     }
 
     @FXML
-    private void setScene(Event event) throws Exception {
+    private void setScene(Event event) {
         SceneButton source = (SceneButton) event.getSource();
         ((BorderPane) this.get("borderPane")).setCenter(this.sceneManager.getScene(source.getScenes(), this));
+        limpe();
     }
 }

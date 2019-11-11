@@ -1,12 +1,16 @@
-package cgpi.vtec;
+package cgpi.vtec.controllers;
 
-import cgpi.controller.AbstractController;
+import cgpi.controller.MainController;
 import cgpi.figuras.model.Desenho;
+import cgpi.vtec.SceneManager;
 import cgpi.vtec.annotation.OnMouseClick;
 import cgpi.vtec.annotation.TextField;
 import cgpi.vtec.events.AbstractDesenhoEvent;
+import cgpi.vtec.events.CropEvent;
 import cgpi.vtec.exception.VFXMLLoaderException;
+import cgpi.vtec.models.TextFieldListner;
 import javafx.scene.Node;
+import javafx.stage.Stage;
 import javafx.util.Builder;
 
 import java.lang.reflect.Constructor;
@@ -18,37 +22,38 @@ import java.util.Map;
 import java.util.Set;
 
 /**
+ * Inicializa e configura o controller de um xml
+ *
  * @author vitor.alves
  */
-public class ControllerBuilder implements Builder<AbstractController<?>> {
+public class ControllerBuilder implements Builder<AbstractDesenhoController<?>> {
 
     private static final String COMPONENTS_FIELD = "components";
 
     private static final String PARENT_FIELD = "parent";
 
-    private AbstractController controller;
+    private AbstractDesenhoController controller;
 
-    private AbstractController parentController;
+    private AbstractDesenhoController parentController;
+
+    private final Stage stage;
 
     private Object model;
 
     private Set<Map.Entry<String, Object>> entries;
 
-    public ControllerBuilder(AbstractController<?> controller, Set<Map.Entry<String, Object>> entries) {
+    public ControllerBuilder(AbstractDesenhoController<?> controller, Set<Map.Entry<String, Object>> entries, Stage stage) {
         this.controller = controller;
         this.entries = entries;
+        this.stage = stage;
     }
 
-    public AbstractController getParentController() {
-        return parentController;
-    }
-
-    public void setParentController(AbstractController parentController) {
+    public void setParentController(AbstractDesenhoController parentController) {
         this.parentController = parentController;
     }
 
     @Override
-    public AbstractController<?> build() {
+    public AbstractDesenhoController<?> build() {
         try {
             this.setUpControllerFields();
             this.setUpControllerModel();
@@ -100,7 +105,7 @@ public class ControllerBuilder implements Builder<AbstractController<?>> {
         Constructor<? extends AbstractDesenhoEvent> constructor;
         Desenho desenho;
         try {
-            constructor = event.getConstructor(AbstractController.class);
+            constructor = event.getConstructor(AbstractDesenhoController.class);
             AbstractDesenhoEvent desenhoEvent = constructor.newInstance(controller);
             desenho = desenhoEvent.getDesenho();
             node.setOnMouseClicked(desenhoEvent);
@@ -130,13 +135,22 @@ public class ControllerBuilder implements Builder<AbstractController<?>> {
             field = getField(PARENT_FIELD);
             this.setField(field, controller, parentController);
         }
+
+        if (this.controller instanceof MainController) {
+            field = getField("sceneManager");
+            this.setField(field, controller, new SceneManager(stage));
+        }
+
+        Node node = components.get("cortar");
+        if (node != null) {
+            node.setOnMouseClicked(new CropEvent(controller));
+        }
     }
 
     private Field getField(String fieldName) throws VFXMLLoaderException {
         Class<?> aClass = this.controller.getClass();
         Field field = null;
         while (field == null && aClass != null) {
-            aClass = aClass.getSuperclass();
             if (aClass != null && containsField(aClass, fieldName)) {
                 try {
                     field = aClass.getDeclaredField(fieldName);
@@ -144,6 +158,7 @@ public class ControllerBuilder implements Builder<AbstractController<?>> {
                     throw new VFXMLLoaderException("No AbstractController instance controller.", e);
                 }
             }
+            aClass = aClass.getSuperclass();
         }
         if (aClass == null) {
             throw new VFXMLLoaderException("No AbstractController instance controller.");

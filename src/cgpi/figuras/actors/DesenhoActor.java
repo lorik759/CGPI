@@ -1,9 +1,6 @@
 package cgpi.figuras.actors;
 
-import cgpi.figuras.model.Circulo;
-import cgpi.figuras.model.Desenho;
-import cgpi.figuras.model.Ponto;
-import cgpi.figuras.model.Reta;
+import cgpi.figuras.model.*;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
@@ -20,6 +17,8 @@ public class DesenhoActor implements Desenhe {
 
     private final Color corReta = Color.RED;
 
+    private final Color corCirculo = Color.GREEN;
+
     private final Color corPonto = Color.BLUE;
 
     public DesenhoActor(GraphicsContext graphicsContext) {
@@ -32,6 +31,20 @@ public class DesenhoActor implements Desenhe {
         this.desenhePontos(desenho.getPontos());
         this.desenheRetas(desenho.getRetas());
         this.desenheCirculos(desenho.getCirculos());
+        this.desenheRetangulos(desenho.getRetangulos());
+        this.desenhePoliganos(desenho.getPoliganos());
+    }
+
+    private void desenhePoliganos(List<Poligano> poliganos) {
+        for (Poligano poligano : poliganos) {
+            this.desenheRetas(poligano.getRetas());
+        }
+    }
+
+    private void desenheRetangulos(List<Retangulo> retangulos) {
+        for (Retangulo retangulo : retangulos) {
+            desenheRetas(retangulo.getRetas());
+        }
     }
 
     @Override
@@ -76,7 +89,9 @@ public class DesenhoActor implements Desenhe {
     }
 
     private void desenheCirculo(Circulo circulo) {
-        this.graphicsContext.strokeOval(circulo.getCentro().getX(), circulo.getCentro().getY(),
-                circulo.getRaio(), circulo.getRaio());
+        graphicsContext.setFill(corCirculo);
+        graphicsContext.setStroke(corCirculo);
+        graphicsContext.setLineWidth(WIDTH);
+        graphicsContext.strokeOval((int) circulo.getCentro().getX() - (int) circulo.getRaio(), (int) circulo.getCentro().getY() - (int) circulo.getRaio(), 2 * (int) circulo.getRaio(), 2 * (int) circulo.getRaio());
     }
 }

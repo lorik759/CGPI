@@ -21,10 +21,16 @@ public class Circulo extends Figura {
         this.raio = raio;
     }
 
+    public Circulo(Ponto centro, double raio) {
+        this.addPoint(CENTRO, centro);
+        this.addPoint(BORDA, new Ponto(centro.getX() + raio, centro.getY()));
+        this.raio = raio;
+    }
+
     public Circulo(List<Ponto> pontos) {
         this.addPoint(CENTRO, pontos.get(0));
         this.addPoint(BORDA, pontos.get(1));
-        this.raio = 10;
+        this.raio = getCentro().distance(getBorda().getX(), getBorda().getY());
     }
 
     public Ponto getCentro() {

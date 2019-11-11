@@ -1,6 +1,6 @@
 package cgpi.controller.kochsnowflake;
 
-import cgpi.controller.AbstractController;
+import cgpi.vtec.controllers.AbstractDesenhoController;
 import cgpi.figuras.model.Ponto;
 import cgpi.figuras.model.Reta;
 import cgpi.vtec.events.AbstractDesenhoEvent;
@@ -13,7 +13,7 @@ import static java.lang.Integer.parseInt;
  */
 public class KochSnowFlakeEvent extends AbstractDesenhoEvent<MouseEvent> {
 
-    public KochSnowFlakeEvent(AbstractController controller) {
+    public KochSnowFlakeEvent(AbstractDesenhoController controller) {
         super(controller);
     }
 

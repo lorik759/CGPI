@@ -1,4 +1,4 @@
-package cgpi.vtec;
+package cgpi.vtec.models;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
