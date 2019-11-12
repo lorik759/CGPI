@@ -41,6 +41,9 @@ public class PoliganoComMouseEvent extends AbstractDesenhoEvent<MouseEvent> {
     }
 
     private void onSecondaryClick(MouseEvent mouseEvent) {
+        if (retas.isEmpty()) {
+            return;
+        }
         retas.add(new Reta(pontoA, retas.get(0).getPointA()));
         primeiraVez = true;
         desenho.addPoligano(new Poligano(retas));

@@ -52,6 +52,8 @@ public class BaseDesenhoExporter implements Exporter {
 
             createRetangulos(doc, rootElement);
 
+            createPoliganos(doc, rootElement);
+
             DOMSource source = new DOMSource(doc);
             StreamResult result = new StreamResult(new File("figuras.xml"));
 
@@ -63,6 +65,23 @@ public class BaseDesenhoExporter implements Exporter {
             transformer.transform(source, result);
         } catch (Exception ex) {
             ex.printStackTrace();
+        }
+    }
+
+    private void createPoliganos(Document doc, Element rootElement) {
+        for (Poligano retangulo : desenho.getPoliganos()) {
+            Element retanguloTag = doc.createElement("Poliganos");
+
+            Element retanguloPontoA = doc.createElement("Ponto");
+//            createPonto(doc, retanguloTag, retanguloPontoA, "x", (getPorporcao(retangulo.getPointA().getX(), canvas.getHeight())));
+//            createPonto(doc, retanguloTag, retanguloPontoA, "y", getPorporcao(retangulo.getPointA().getY(), canvas.getWidth()));
+
+
+            Element retanguloPontoB = doc.createElement("Ponto");
+//            createPonto(doc, retanguloTag, retanguloPontoB, "x", getPorporcao(retangulo.getPointB().getX(), canvas.getWidth()));
+//            createPonto(doc, retanguloTag, retanguloPontoB, "y", getPorporcao(retangulo.getPointB().getY(), canvas.getHeight()));
+
+            rootElement.appendChild(retanguloTag);
         }
     }
 

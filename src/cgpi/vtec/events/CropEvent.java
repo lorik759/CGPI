@@ -64,6 +64,8 @@ public class CropEvent implements EventHandler<MouseEvent> {
             Bounds selectionBounds = rubberBandSelection.getBounds();
             System.out.println("Área selecionada: " + selectionBounds);
             crop(selectionBounds);
+            primaryStage.close();
+            controller.limpe();
         });
         contextMenu.getItems().add(cropMenuItem);
 
