@@ -44,7 +44,7 @@ public class DesenhoUtils {
     private static List<Circulo> convertCirculos(Canvas from, Canvas to, List<Circulo> circulos) {
         List<Circulo> newCirculos = new ArrayList<>();
         for (Circulo circulo : circulos) {
-            newCirculos.add(new Circulo(convertPontos(from, to, circulo.getPontos())));
+            newCirculos.add(new Circulo(convertPontos(from, to, circulo.getPontos()), circulo.getColor()));
         }
         return newCirculos;
     }
@@ -53,7 +53,7 @@ public class DesenhoUtils {
         List<Reta> newRetas = new ArrayList<>();
 
         for (Reta reta : retas) {
-            newRetas.add(new Reta(convertPontos(from, to, reta.getPontos())));
+            newRetas.add(new Reta(convertPontos(from, to, reta.getPontos()), reta.getColor()));
         }
 
         return newRetas;

@@ -1,5 +1,7 @@
 package cgpi.figuras.model;
 
+import javafx.scene.paint.Color;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,8 +14,14 @@ public class Figura {
 
     private final Map<String, Ponto> points;
 
-    public Figura() {
+    private final List<String> colors;
+
+    private final Color color;
+
+    public Figura(Color color) {
         points = new HashMap<String, Ponto>();
+        colors = new ArrayList<String>();
+        this.color = color;
     }
 
     public void addPoint(String pointName, Ponto point) {
@@ -26,5 +34,9 @@ public class Figura {
 
     public List<Ponto> getPontos() {
         return new ArrayList<Ponto>(points.values());
+    }
+
+    public Color getColor() {
+        return color;
     }
 }

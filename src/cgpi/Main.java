@@ -1,7 +1,5 @@
 package cgpi;
 
-import cgpi.controller.MainController;
-import cgpi.vtec.SceneManager;
 import cgpi.vtec.VFXMLLoader;
 import javafx.application.Application;
 import javafx.scene.Parent;

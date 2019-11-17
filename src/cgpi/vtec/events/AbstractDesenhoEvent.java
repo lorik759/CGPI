@@ -4,7 +4,6 @@ import cgpi.vtec.controllers.AbstractDesenhoController;
 import cgpi.figuras.actors.Desenhe;
 import cgpi.figuras.actors.DesenhoActor;
 import cgpi.figuras.model.Desenho;
-import cgpi.vtec.exporter.BaseDesenhoImporter;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.canvas.Canvas;

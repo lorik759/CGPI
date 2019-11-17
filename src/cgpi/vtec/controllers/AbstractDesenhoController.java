@@ -1,8 +1,8 @@
 package cgpi.vtec.controllers;
 
 import cgpi.vtec.exception.VFXMLLoaderException;
-import cgpi.vtec.exporter.BaseDesenhoExporter;
-import cgpi.vtec.exporter.BaseDesenhoImporter;
+import cgpi.vtec.exporter.XmlDesenhoExporter;
+import cgpi.vtec.exporter.XmlDesenhoImporter;
 import cgpi.vtec.exporter.Exporter;
 import cgpi.vtec.exporter.Importer;
 import cgpi.vtec.models.DesenhoModel;
@@ -30,11 +30,11 @@ public abstract class AbstractDesenhoController<T extends DesenhoModel> {
     }
 
     protected Exporter getExporter() {
-        return new BaseDesenhoExporter(model.getDesenho(), (Canvas) get("canvas"));
+        return new XmlDesenhoExporter(model.getDesenho(), (Canvas) get("canvas"));
     }
 
     protected Importer getImporter() {
-        return new BaseDesenhoImporter(this);
+        return new XmlDesenhoImporter(this);
     }
 
     protected abstract T createModel();

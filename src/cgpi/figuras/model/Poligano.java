@@ -1,5 +1,7 @@
 package cgpi.figuras.model;
 
+import javafx.scene.paint.Color;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +13,7 @@ public class Poligano extends Figura {
     private List<Reta> retas;
 
     public Poligano(List<Reta> retas) {
+        super(Color.RED);
         this.retas = new ArrayList<>(retas);
     }
 
