@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="cgpi.controller.circuloscommouse.CirculoController">
+    <top>
+        <HBox prefHeight="85.0" prefWidth="600.0" styleClass="sidebar" BorderPane.alignment="CENTER">
+            <children>
+                <VBox layoutX="10.0" layoutY="10.0">
+                    <children>
+                        <Label styleClass="label-field-nocolor" text="Limpar Tela:">
+                            <padding>
+                                <Insets bottom="10.0" left="23.0" right="10.0" top="20.0"/>
+                            </padding>
+                        </Label>
+                        <Button mnemonicParsing="false" onMouseClicked="#limpe" styleClass="inner-btn" text="Limpe">
+                            <VBox.margin>
+                                <Insets left="25.0" right="10.0"/>
+                            </VBox.margin>
+                        </Button>
+                    </children>
+                    <HBox.margin>
+                        <Insets left="10.0" right="10.0"/>
+                    </HBox.margin>
+                </VBox>
+                <VBox layoutX="10.0" layoutY="10.0">
+                    <children>
+                        <Label styleClass="label-field-nocolor" text="Cortar:">
+                            <padding>
+                                <Insets bottom="10.0" left="30.0" right="10.0" top="20.0" />
+                            </padding>
+                        </Label>
+                        <Button fx:id="cortar" mnemonicParsing="false" styleClass="inner-btn" text="Cortar">
+                            <VBox.margin>
+                                <Insets left="25.0" right="10.0" />
+                            </VBox.margin>
+                        </Button>
+                    </children>
+                    <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                    </HBox.margin>
+                </VBox>
+                <VBox layoutX="10.0" layoutY="10.0">
+                    <children>
+                        <Label styleClass="label-field-nocolor" text="Exportar">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="20.0"/>
+                            </padding>
+                        </Label>
+                        <Button fx:id="exporterButton" onMouseClicked="#export" mnemonicParsing="false"
+                                styleClass="inner-btn" text="Export">
+                            <VBox.margin>
+                                <Insets left="10.0" right="10.0"/>
+                            </VBox.margin>
+                        </Button>
+                    </children>
+                    <HBox.margin>
+                        <Insets left="10.0" right="10.0"/>
+                    </HBox.margin>
+                </VBox>
+                <VBox layoutX="10.0" layoutY="10.0">
+                    <children>
+                        <Label styleClass="label-field-nocolor" text="Importe">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="20.0"/>
+                            </padding>
+                        </Label>
+                        <Button fx:id="importer" onMouseClicked="#importe" mnemonicParsing="false"
+                                styleClass="inner-btn" text="Importer">
+                            <VBox.margin>
+                                <Insets left="10.0" right="10.0"/>
+                            </VBox.margin>
+                        </Button>
+                    </children>
+                    <HBox.margin>
+                        <Insets left="10.0" right="10.0"/>
+                    </HBox.margin>
+                </VBox>
+            </children>
+        </HBox>
+    </top>
+    <center>
+        <Pane BorderPane.alignment="CENTER">
+            <children>
+                <Canvas fx:id="canvas" height="425.0" nodeOrientation="INHERIT" styleClass="canvas" width="650.0"/>
+            </children>
+        </Pane>
+    </center>
+</BorderPane>
